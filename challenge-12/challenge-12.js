@@ -35,11 +35,10 @@ Envolva todo o conteúdo desse arquivo em uma IIFE.
   `name`: String
   `pages`: Number
   */
-  books = [
-    { name: "Alice in Wonderland", pages: 768 },
-    { name: "Inferno", pages: 566 },
-    { name: "Art of war", pages: 128 },
-  ];
+  books.push({ name: "Alice in Wonderland", pages: 768 });
+  books.push({ name: "Inferno", pages: 566 });
+  books.push({ name: "Art of war", pages: 128 });
+
   console.log("\nLista de livros:");
 
   /*

@@ -11,18 +11,11 @@
   Mostre esse array no console.
   */
   console.log("Number Objects Array:");
-  var numberObjects = [
-    { number: 1 },
-    { number: 2 },
-    { number: 3 },
-    { number: 4 },
-    { number: 5 },
-    { number: 6 },
-    { number: 7 },
-    { number: 8 },
-    { number: 9 },
-    { number: 10 },
-  ];
+  var numberObjects = [];
+
+  for (var i = 1; i <= 10; i++) {
+    numberObjects.push({ number: i });
+  }
 
   console.log(numberObjects);
 
@@ -31,7 +24,9 @@
   números do array criado acima. Mostre esse novo array no console.
   */
   console.log("\nJust Numbers:");
-  var justNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var justNumbers = numberObjects.map(function (el) {
+    return el.number;
+  });
   console.log(justNumbers);
 
   /*
@@ -85,9 +80,8 @@
   var name = ["Da", "ni", "lo"];
   console.log(
     name.reduce(function (prev, current, i) {
-      var retorno = i !== 0 ? prev + "P" + current : "P" + current;
-      return retorno;
-    }, 0)
+      return prev + "P" + current;
+    }, "")
   );
 
   /*

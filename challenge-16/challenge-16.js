@@ -52,12 +52,21 @@
   */
   console.log("\nMeus amigos:");
   var arr = ["Danilo", "Majari", "Victor", "Kaline", "Jhow"];
-  arr = arr.join();
-  arr =
-    arr.substring(arr.lastIndexOf(","), 0) +
-    arr.slice(arr.lastIndexOf(",")).replace(",", " e ");
-  arr = arr.split(",").join(", ").concat(" são meus amigos.");
-  console.log(arr);
+  // arr = arr.join();
+  // arr =
+  //   arr.substring(arr.lastIndexOf(","), 0) +
+  //   arr.slice(arr.lastIndexOf(",")).replace(",", " e ");
+  // arr = arr.split(",").join(", ").concat(" são meus amigos.");
+  // console.log(arr);
+
+  var phrase = arr
+    .reduce(function (prev, current, i) {
+      var separator = arr.length - 1 === i ? " e " : ", ";
+      return prev + separator + current;
+    })
+    .concat(" são meus amigos.");
+
+  console.log(phrase);
 
   /*
   Usando o replace(), faça a string "Roberto" virar "Roberta".

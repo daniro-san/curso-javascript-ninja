@@ -45,7 +45,7 @@
   minúsculo por "0" (número zero). Mostre o resultado no console:
   */
   console.log('\nTrocando de "D" a "h" por "0":');
-  console.log(text.replace(/[D-h]/g, 0));
+  console.log(text.replace(/[D-Za-h]/g, 0));
 
   /*
   Substitua todos os "A" (maiúsculos ou minúsculos) por "4".
@@ -60,7 +60,7 @@
   */
   console.log('\n"O Centauro de Luvas" em caixa alta:');
   console.log(
-    text.replace(/(O Centauro de Luvas)/, function (captura, vl) {
+    text.replace(/O Centauro de Luvas/, function (vl) {
       return vl.toUpperCase();
     })
   );
@@ -131,8 +131,8 @@
   console o resultado.
   */
   console.log("\nReplace de datas:");
-  function replaceDate(day, month, year) {
+  function replaceDate(regex, day, month, year) {
     return `${day}/${getMonthNumber(month)}/${year}`;
   }
-  console.log(text.replace(regexDate, replaceDate("$1", "$2", "$3")));
+  console.log(text.replace(regexDate, replaceDate));
 })();

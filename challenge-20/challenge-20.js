@@ -77,36 +77,20 @@
     function (e) {
       e.preventDefault();
 
-      if (!$inputUsername.value) {
-        win.alert("Preencha o nome do usuário!");
-        return false;
-      }
+      if (!$inputUsername.value)
+        return win.alert("Preencha o nome do usuário!");
 
-      if (!$inputEmail.value) {
-        win.alert("Preencha o e-mail!");
-        return false;
-      }
+      if (!$inputEmail.value) return win.alert("Preencha o e-mail!");
 
-      if (!$message.value) {
-        win.alert("Preencha a mensagem!");
-        return false;
-      }
+      if (!$message.value) return win.alert("Preencha a mensagem!");
 
-      if (!isValidEmail($inputEmail.value)) {
-        win.alert("Entre com um e-mail válido!");
-        return false;
-      }
+      if (!isValidEmail($inputEmail.value))
+        return win.alert("Entre com um e-mail válido!");
 
-      var userAnswer = win.confirm(
-        "Tem certeza que deseja enviar o formulário?"
-      );
+      if (!win.confirm("Tem certeza que deseja enviar o formulário?"))
+        return win.alert("Não enviado.");
 
-      if (userAnswer) {
-        win.alert("Enviado com sucesso!");
-        return true;
-      }
-
-      win.alert("Não enviado.");
+      win.alert("Enviado com sucesso!");
     },
     false
   );
@@ -138,7 +122,7 @@
   */
   function isValidEmail(email) {
     var emailRegex = new RegExp(
-      "^[\\w+.+]+@\\w+\\.\\w{2,}(?:\\.\\w{2})?$",
+      "^[\\w+.]+@\\w+\\.\\w{2,}(?:\\.\\w{2})?$",
       "gi"
     );
 

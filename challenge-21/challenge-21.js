@@ -20,24 +20,25 @@
   var $startButton = doc.querySelector('[data-js="start"]');
   var $stopButton = doc.querySelector('[data-js="stop"]');
   var $resetButton = doc.querySelector('[data-js="reset"]');
-  var counter = 0;
   var timerId;
 
-  $startButton.addEventListener("click", function () {
-    timerId = setInterval(function () {
-      counter++;
-      $timer.value = counter;
-    }, 1000);
-  });
+  $startButton.addEventListener("click", startTimer, false);
+  $stopButton.addEventListener("click", stopTimer, false);
+  $resetButton.addEventListener("click", resetTimer, false);
 
-  $stopButton.addEventListener("click", function () {
-    if (timerId) clearInterval(timerId);
-  });
+  function startTimer() {
+    $timer.value = +$timer.value + 1;
 
-  $resetButton.addEventListener("click", function () {
-    if (timerId) clearInterval(timerId);
+    timerId = setTimeout(startTimer, 1000);
+  }
 
-    counter = 0;
-    $timer.value = counter;
-  });
+  function stopTimer() {
+    clearTimeout(timerId);
+  }
+
+  function resetTimer() {
+    $timer.value = 0;
+
+    stopTimer();
+  }
 })(window, document);

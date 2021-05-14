@@ -4,13 +4,10 @@
   Crie dois objetos, que serão duas pessoas. Cada um deve ter as propriedades
   `name` e `lastName`, preenchidos com o nome e sobrenome da pessoa.
   */
-  function Pessoa(name, lastName) {
-    this.name = name;
-    this.lastName = lastName;
-  }
-  var objPessoa1 = new Pessoa("Danilo", "Rodrigues");
 
-  var objPessoa2 = new Pessoa("Majari", "Andresa");
+  var objPessoa1 = { name: "Danilo", lastName: "Rodrigues" };
+
+  var objPessoa2 = { name: "Majari", lastName: "Andresa" };
 
   /*
   Agora crie uma função chamada `getFullName` que retorne as propriedades
@@ -24,12 +21,12 @@
   contexto da função. Use um console.log por pessoa.
   */
   console.log("O nome das pessoas é:");
-  Pessoa.prototype.getFullName = function () {
+  function getFullName() {
     return `${this.name} ${this.lastName}`;
-  };
+  }
 
-  console.log(objPessoa1.getFullName());
-  console.log(objPessoa2.getFullName());
+  console.log(getFullName.call(objPessoa1));
+  console.log(getFullName.call(objPessoa2));
 
   /*
   Crie uma função chamada `sum`. Essa função pode receber uma lista de
